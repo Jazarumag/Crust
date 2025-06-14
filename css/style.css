@@ -47,7 +47,14 @@ Table of Content:
   margin: 0px;
   padding: 0px;
 }
-
+.tp-bgimg.defaultimg::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.45);
+  pointer-events: none;
+  z-index: 1;
+}
 a {
   text-decoration: none;
   vertical-align: middle;
@@ -126,7 +133,7 @@ i:before {
 }
 
 .main_title h2 {
-  color: #3e606b;
+  color: #358e8f;
   font-family: "Playfair Display", serif;
   font-weight: bold;
   font-size: 38px;
@@ -1316,7 +1323,7 @@ i:before {
 }
 
 .box_menu_four .navbar.navbar-expand-lg .navbar-nav li:hover a, .box_menu_four .navbar.navbar-expand-lg .navbar-nav li.active a {
-  color: #f195b2;
+  color: #358e8f;
 }
 
 .box_menu_four .navbar.navbar-expand-lg .navbar-nav li.search_icon a {
@@ -1491,7 +1498,7 @@ i:before {
 /* Pink Button Area css
 ============================================================================================ */
 .pink_btn {
-  background: #f195b2;
+  background: #358e8f;
   color: #fff;
   line-height: 45px;
   border-radius: 22px;
@@ -1533,7 +1540,7 @@ i:before {
 }
 
 .pest_btn {
-  background: #94c9d9;
+  background: #358e8f;
   color: #fff;
   line-height: 36px;
   display: inline-block;
@@ -1635,7 +1642,7 @@ i:before {
 }
 
 .w_view_btn:before {
-  background: #f195b2;
+  background: #ffc000;
   content: "";
   height: 155px;
   left: -75px;
@@ -1652,7 +1659,7 @@ i:before {
 }
 
 .w_view_btn:hover {
-  color: #f195b2;
+  color: #ffc000;
 }
 
 .w_view_btn:hover:before {
@@ -1831,7 +1838,7 @@ i:before {
 /* Main Slider Area css
 ============================================================================================ */
 .main_slider_area .rev_slider ul li .slider_text_box .first_text {
-  color: #fff;
+  color: #ffc000;
   font-family: "Playfair Display", serif;
   font-weight: bold !important;
 }
@@ -1870,7 +1877,7 @@ i:before {
 }
 
 .main_slider_area .rev_slider ul li .slider_text_box .main_btn:hover {
-  background: #f195b2;
+  background: #358e8f;
   color: #fff;
 }
 
@@ -1996,9 +2003,9 @@ i:before {
 }
 
 .cake_feature_slider .cake_feature_slider .owl-prev:hover, .cake_feature_slider .cake_feature_slider .owl-next:hover {
-  background: #f195b2;
+  background: #ffc000;
   color: #fff;
-  border-color: #f195b2;
+  border-color: #ffc000;
   cursor: pointer;
 }
 
@@ -2182,6 +2189,17 @@ i:before {
   background-size: cover;
   padding: 85px 0px;
   position: relative;
+}
+.special_recipe_area::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1;
+}
+.special_recipe_area > * {
+  position: relative;
+  z-index: 2;
 }
 
 .special_recipe_slider {
@@ -3266,9 +3284,9 @@ i:before {
 }
 
 .client_says_slider .client_says_slider .owl-prev:hover, .client_says_slider .client_says_slider .owl-next:hover {
-  background: #f195b2;
+  background: #ffc000;
   color: #fff;
-  border-color: #f195b2;
+  border-color: #ffc000;
   cursor: pointer;
 }
 
