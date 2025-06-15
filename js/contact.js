@@ -1,9 +1,10 @@
+import { database } from './firebase.js';
+import { ref, push } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-database.js";
+
 $(document).ready(function(){
-    
     (function($) {
         "use strict";
 
-    
     jQuery.validator.addMethod('answercheck', function (value, element) {
         return this.optional(element) || /^\bcat\b$/.test(value)
     }, "type the correct answer -_-");
@@ -20,66 +21,65 @@ $(document).ready(function(){
                     required: true,
                     minlength: 4
                 },
-                number: {
-                    required: true,
-                    minlength: 5
-                },
                 email: {
                     required: true,
                     email: true
                 },
                 message: {
                     required: true,
-                    minlength: 20
                 }
             },
             messages: {
                 name: {
-                    required: "come on, you have a name, don't you?",
-                    minlength: "your name must consist of at least 2 characters"
+                    required: "Ingresa tu nombre",
+                    minlength: "Tu nombre debe tener al menos 2 caracteres"
                 },
                 subject: {
-                    required: "come on, you have a subject, don't you?",
-                    minlength: "your subject must consist of at least 4 characters"
-                },
-                number: {
-                    required: "come on, you have a number, don't you?",
-                    minlength: "your Number must consist of at least 5 characters"
+                    required: "Ingresa un asunto",
+                    minlength: "Asunto debe tener al menos 4 caracteres"
                 },
                 email: {
-                    required: "no email, no message"
+                    required: "Ingresa tu correo electrónico",
+                    email: "Ingresa un correo electrónico válido"
                 },
                 message: {
-                    required: "um...yea, you have to write something to send this form.",
-                    minlength: "thats all? really?"
+                    required: "Tienes que escribir algo para enviar este formulario",
                 }
             },
-            submitHandler: function(form) {
-                $(form).ajaxSubmit({
-                    type:"POST",
-                    data: $(form).serialize(),
-                    url:"contact_process.php",
-                    success: function() {
-                        $('#contactForm :input').attr('disabled', 'disabled');
-                        $('#contactForm').fadeTo( "slow", 1, function() {
-                            $(this).find(':input').attr('disabled', 'disabled');
-                            $(this).find('label').css('cursor','default');
-                            $('#success').fadeIn()
-                            $('.modal').modal('hide');
-		                	$('#success').modal('show');
-                        })
-                    },
-                    error: function() {
-                        $('#contactForm').fadeTo( "slow", 1, function() {
-                            $('#error').fadeIn()
-                            $('.modal').modal('hide');
-		                	$('#error').modal('show');
-                        })
+            submitHandler: async function(form) {
+                try {
+                    await push(ref(database, 'contacts'), {
+                        name: form.name.value,
+                        email: form.email.value,
+                        subject: form.subject.value,
+                        message: form.message.value,
+                        date: new Date().toISOString()
+                    });
+                    // Mostrar notificación de éxito
+                    if (!document.getElementById('form-success-alert')) {
+                        $("#contactForm").before('<div id="form-success-alert" style="margin-bottom:15px;" class="alert alert-success" role="alert">¡Formulario enviado con éxito!</div>');
+                    } else {
+                        $('#form-success-alert').show();
                     }
-                })
+                    // Limpiar el formulario y permitir nuevo envío
+                    form.reset();
+                    $('#contactForm :input').prop('disabled', false);
+                    setTimeout(function() {
+                        $('#form-success-alert').fadeOut();
+                    }, 4000);
+                } catch (error) {
+                    if (!document.getElementById('form-error-alert')) {
+                        $("#contactForm").before('<div id="form-error-alert" style="margin-bottom:15px;" class="alert alert-danger" role="alert">Ocurrió un error al enviar el formulario. Intenta de nuevo.</div>');
+                    } else {
+                        $('#form-error-alert').show();
+                    }
+                    setTimeout(function() {
+                        $('#form-error-alert').fadeOut();
+                    }, 4000);
+                    console.error(error);
+                }
             }
         })
     })
-        
- })(jQuery)
+    })(jQuery)
 })
