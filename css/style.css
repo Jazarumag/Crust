@@ -388,6 +388,8 @@ i:before {
   width: 100%;
   top: 0px;
   z-index: 30;
+  font-family: "Hubot Sans", sans-serif;
+  font-style: italic;
 }
 
 .main_header_area + section, .main_header_area + div, .main_header_area + .row {
@@ -633,8 +635,9 @@ i:before {
   line-height: 85px;
   font-size: 18px;
   color: #ffffff;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 600;
+  font-family: "Hubot Sans", sans-serif;
+  font-style: italic;
+  font-weight: 400;
   -webkit-transition: all 300ms ease;
   -o-transition: all 300ms ease;
   transition: all 300ms ease;
@@ -2957,7 +2960,7 @@ i:before {
 }
 
 .arivals_chocolate .arivals_pic {
-  text-align: right;
+  text-align: center;
   position: relative;
 }
 
