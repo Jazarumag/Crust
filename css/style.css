@@ -2589,7 +2589,7 @@ i:before {
 /* Service Area css
 ============================================================================================ */
 .service_area {
-  background: url(../img/service-bg.jpg) no-repeat scroll center center;
+  background: url(../img/service-bg.png) no-repeat scroll center center;
   background-size: cover;
   padding: 100px 0px 155px 0px;
 }
@@ -2630,8 +2630,9 @@ i:before {
 .discover_menu_area:before {
   content: "";
   background: url(../img/menu-left.png) no-repeat scroll center center;
+  background-size: auto 734px;
   width: 260px;
-  height: 480px;
+  height: 698px;
   position: absolute;
   left: 0px;
   top: 50%;
@@ -2643,8 +2644,9 @@ i:before {
 .discover_menu_area:after {
   content: "";
   background: url(../img/menu-right.png) no-repeat scroll center center;
+  background-size: auto 720px;
   width: 260px;
-  height: 640px;
+  height: 698.5px;
   position: absolute;
   right: 0px;
   bottom: 0px;
@@ -2705,7 +2707,7 @@ i:before {
 
 .discover_item_inner .discover_item p span {
   float: right;
-  color: #e3764b;
+  color: #358e8f;
   font-size: 20px;
   font-family: "Playfair Display", serif;
   font-weight: bold;
@@ -2960,6 +2962,7 @@ i:before {
 }
 
 .arivals_chocolate .arivals_pic {
+  width: 360px;
   text-align: center;
   position: relative;
 }
@@ -3030,7 +3033,7 @@ i:before {
   height: 9px;
   width: 9px;
   border-radius: 50%;
-  background: #f195b2;
+  background: #358e8f;
   display: inline-block;
   margin-right: 10px;
 }
@@ -4235,7 +4238,7 @@ i:before {
 }
 
 .s_comment_area .s_comment_inner .contact_us_form .form-group .order_s_btn {
-  background: #f195b2;
+  background: #358e8f;
   font-size: 14px;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
@@ -4560,7 +4563,7 @@ i:before {
 }
 
 .contact_us_form .form-group .order_s_btn {
-  background: #f195b2;
+  background: #ffc000;
   font-size: 14px;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
@@ -6546,7 +6549,7 @@ i:before {
 /* Footer Area css
 ============================================================================================ */
 .footer_area {
-  background: #303339;
+  background: #358e8f;
   overflow: hidden;
 }
 
@@ -6579,7 +6582,7 @@ i:before {
   position: absolute;
   left: 0px;
   bottom: 0px;
-  background: #f195b2;
+  background: #ffffff;
 }
 
 .f_about_widget p {
